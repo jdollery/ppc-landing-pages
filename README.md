@@ -1,3 +1,2 @@
-# ddl-ppc
-
-<!-- https://github.com/matthiasmullie/minify/ -->
+# PHP Landing Pages
+PPC templates for Adwords campaigns
