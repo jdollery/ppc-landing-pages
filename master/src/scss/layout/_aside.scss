@@ -1,0 +1,294 @@
+/*-----------------------------------------------------------------------------------*/
+/* SIDEBAR STYLING */
+/*-----------------------------------------------------------------------------------*/
+
+.aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 35%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7.5rem;
+  opacity: 1;
+  visibility: visible;
+
+  @include media-height(md) {
+    width: 100%;
+    padding: 6rem 2rem;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 99999;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  @include media-down(xl) {
+    width: 100%;
+    padding: 4rem 2rem 10rem;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 99999;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  @include media-up(xl) {
+    padding-top: 8.8rem;
+  }
+
+  &--thanks {
+    display: none;
+  }
+
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+/* DIALOG STYLING */
+/*-----------------------------------------------------------------------------------*/
+
+.dialog {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 40rem;
+  border: 0;
+  opacity: 1;
+  background: transparent;
+  @include box-shadow (none);
+
+  @include media-height(md) {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition-delay: 0.3s;
+    transform: translateY(-5rem);
+    z-index: 999999;
+    width: 40rem !important;
+  }
+
+  @include media-down(xl) {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition-delay: 0.3s;
+    transform: translateY(-5rem);
+    z-index: 999999;
+  }
+
+  @include media-up(xl) {
+    width: 28.5vw;
+  }
+
+  @include media-up(xxl) {
+    width: 47rem;
+  }
+
+  &__backdrop {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-two);
+
+    @include media-height(md) {
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      // transition-delay: 0.5s;
+      opacity: 0;
+      visibility: hidden;
+    }
+  
+    @include media-down(xl) {
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      // transition-delay: 0.5s;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
+  &__inner {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: var(--color-three);
+    @include box-shadow (0 0 1.5rem 0 rgba(0, 0, 0, 0.4));
+
+    @include media-height(md) {
+      border-radius: 0;
+    }
+
+    @include media-down(xl) {
+      border-radius: 0;
+    }
+
+  }
+
+  &__close {
+    display: none;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.15rem;
+    background: var(--color-one);
+    border: 0.2rem solid var(--white);
+    border-radius: 50%;
+
+    @include media-height(md) {
+      display: block;
+    }
+
+    @include media-down(xl) {
+      display: block;
+    }
+
+    svg {
+      fill: var(--white);
+    }
+
+  }
+
+  &__heading {
+    padding: 1.8rem 2.2rem;
+    background: var(--color-one);
+    color: var(--white);
+    text-align: center;
+
+    @include media-up(md) {
+      padding: 2.5rem 4rem;
+    }
+
+    @media (max-height: 779px) {
+      padding: 2rem 3rem;
+    }
+    
+    h3 {
+      line-height: 1.4;
+      font-size: 1.9rem;
+
+      @include media-up(sm) {
+        font-size: 2rem;
+      }
+
+      @include media-up(lg) {
+        font-size: 1.7rem;
+      }
+
+      @include media-min(1300px) {
+        font-size: 1.9rem;
+      }
+
+      @include media-up(xxl) {
+        font-size: 2.3rem;
+      }
+
+    }
+
+  }
+
+  .button {
+    padding: 1.8rem 2.5rem;
+    background: var(--color-three);
+    color: var(--white);
+    text-align: center;
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+    font-size: 1.6rem;
+
+    @include media-up(sm) {
+      font-size: 1.8rem;
+      padding: 2.5rem 3rem;
+    }
+
+    @include media-up(md) {
+      font-size: 1.9rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 1.2vw;
+    }
+
+    @include media-up(xxl) {
+      // padding: 3rem 4rem;
+      font-size: 1.9rem;
+    }
+
+    @media (max-height: 779px) {
+      padding: 1.8rem 2.5rem;
+    }
+
+    @include hover-focus {
+      background: var(--color-one);
+    }
+
+  }
+
+}
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* SIDEBAR & DIALOG STYLING - OPEN */
+/*-----------------------------------------------------------------------------------*/
+
+.aside {
+
+  &.open {
+
+    @include media-height(md) {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    @include media-down(xl) {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dialog {
+
+      @include media-height(md) {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0;
+      }
+    
+      @include media-down(xl) {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0;
+      }
+
+      &__backdrop {
+
+        @include media-height(md) {
+          opacity: 0.8;
+          visibility: visible;
+          // transition-delay: 0;
+        }
+      
+        @include media-down(xl) {
+          opacity: 0.8;
+          visibility: visible;
+          // transition-delay: 0;
+        }
+
+      }
+
+    }
+  
+  }
+
+}

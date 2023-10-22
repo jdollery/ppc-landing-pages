@@ -1,0 +1,80 @@
+@mixin tick-list {
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0;
+  text-align: left;
+
+  li {
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 6rem;
+    @include h4;
+
+    &:not(:last-child) {
+      margin: 0 0 2rem 0;
+    }
+
+  }
+
+  .icon {
+    position: absolute;
+    top: -0.4rem;
+    left: 0;
+    // content: "";
+    display: block;
+    // background-image: url('./img/tick.svg');
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    width: 3.5rem;
+    height: 3.5rem;
+
+    @include media-up(xxl) {
+      width: 4rem;
+      height: 4rem;
+    }
+
+  }
+
+  @include media-height(md) {
+    width: fit-content;
+    margin: 3rem auto 4rem;
+  }
+
+  @include media-down(xl) {
+    width: fit-content;
+    margin: 3rem auto 4rem;
+  }
+
+}
+
+ul {
+  margin-top: var(--paragraph-margin);
+  margin-bottom: var(--paragraph-margin);
+  
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+.tick-list {
+  @include tick-list;
+
+  &--lg {
+
+    li {
+      @include h2;
+    }
+
+    .icon {
+      top: 0.4rem;
+    }
+
+  }
+
+}

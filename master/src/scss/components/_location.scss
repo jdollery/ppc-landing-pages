@@ -1,0 +1,111 @@
+.location {
+
+  &--color-one {
+    background: var(--color-one);
+    color: var(--white);
+  }
+
+  &--color-two {
+    background: var(--color-two);
+  }
+
+  &--color-three {
+    background: var(--color-three);
+    color: var(--white);
+  }
+
+  &__inner {
+    width: $main;
+
+    @include media-height(md) {
+      width: 100%;
+    }
+
+    @include media-down(xl) {
+      width: 100%;
+    }
+
+  }
+
+  &__body {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+
+    @include media-up(md) {
+      font-size: 1.6rem;
+    }
+
+  }
+
+  &__map {
+    position: relative;
+    @include cell-span(12);
+    height: 30rem;
+    order: 1;
+
+    @include media-up(md) {
+      height: 40rem;
+    }
+
+    @include media-up(lg) {
+      @include cell-span(0);
+      order: 2;
+    }
+
+    @include media-up(xl) {
+      height: 50rem;
+    }
+
+    @include media-up(xxl) {
+      height: 60rem;
+    }
+  
+
+  }
+
+  &__opening {
+    z-index: 1;
+    background: white;
+    @include block;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    order: 2;
+
+    @include media-up(lg) {
+      max-width: 36rem;
+      order: 1;
+      text-align: left;
+    }
+
+    @include media-up(xxl) {
+      max-width: 42rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+
+      li {
+
+        &:not(:last-child) {
+          margin: 0 0 0.4rem 0;
+        }
+
+      }
+
+    }
+
+  }
+
+  &__heading {
+    font-family: var(--heading-font);
+    font-weight: var(--heading-weight);
+  }
+
+}

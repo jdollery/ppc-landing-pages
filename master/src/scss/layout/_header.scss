@@ -1,0 +1,177 @@
+.header {
+  position: relative;
+
+  @include media-up(xl) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    z-index: 9999;
+    width: 100%;
+  }
+
+  &__row {
+    @include cell-row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    @include cell;
+    @include cell-span(12);
+    text-align: center;
+
+    @include media-up(xl) {
+      @include cell-span(auto);
+    }
+
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    background: var(--color-one);
+    @include box-shadow (0 0 1.5rem 0 rgba(0, 0, 0, 0.4));
+    z-index: 1;
+
+    @include media-up(md) {
+      padding: 2rem;
+    }
+
+    @include media-up(lg) {
+      padding: 2.5rem 3rem;
+    }
+
+    @include media-up(xl) {
+      padding: 3rem 4rem;
+      border-radius: 0 0 var(--border-radius) 0;
+    }
+
+    img {
+      max-width: var(--logo-width-sm);
+      transition: opacity 0.3s ease-out;
+
+      @include media-up(md) {
+        max-width: var(--logo-width-md);
+      }
+
+      @include media-up(xxl) {
+        max-width: var(--logo-width-lg);
+      }
+
+    }
+
+    @include hover-focus {
+
+      img {
+        opacity: 0.8;
+      }
+
+    }
+
+  }
+
+  &__contact {
+    @include cell;
+    @include cell-span(12);
+    background: var(--color-three);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    font-family: var(--heading-font);
+
+    @include media-up(sm) {
+      font-size: 1.6rem;
+    }
+
+    @include media-up(md) {
+      font-size: 1.7rem;
+      padding: 2rem;
+    }
+
+    @include media-up(xl) {
+      @include cell-span(auto);
+      padding: 2.5rem 3rem;
+      font-size: 1.8rem;
+      border-radius: 0 0 0 var(--border-radius);
+      text-align: right;
+      background: var(--color-one);
+      @include box-shadow (0 0 1.5rem 0 rgba(0, 0, 0, 0.4));
+    }
+
+    @include media-up(xxl) {
+      padding: 3rem 4rem;
+      font-size: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: block;
+
+        @include media-up(xl) {
+          display: inline-block;
+
+          &:not(:last-child) {
+            margin: 0 1rem 0 0;
+  
+            &::after {
+              display: inline-block;
+              content: "|";
+              margin: 0 0 0 1rem;
+            }
+  
+          }
+
+        }    
+
+        a {
+          color: var(--white);
+
+          &:not(:last-child) {
+            margin: 0 0.8rem 0 0;
+          }
+
+          .icon {
+
+            @include media-down(xl) {
+              margin-top: 1.5rem;
+            }
+
+            svg {
+              fill: var(--white);
+            }
+
+          }
+
+
+          @include hover-focus {
+            opacity: 0.8;
+          }
+
+        }
+
+        .button {
+          padding: 1rem 1.5rem;
+          border-radius: calc(var(--border-radius) - 1rem);
+
+          @include media-down(xl) {
+            width: fit-content;
+            margin-top: 1.5rem;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

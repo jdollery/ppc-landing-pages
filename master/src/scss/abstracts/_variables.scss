@@ -1,0 +1,43 @@
+$theme-name: observatory;
+
+:root {
+
+  /* --------- COLOURS --------- */
+
+  --white: #ffffff;
+  --black: #202020;
+
+  --color-one: #424242;
+  --color-two: #dadada;
+  --color-three: #50b0ae;
+
+  --danger: #dc3545;
+
+  --stars: #edb406;
+  
+
+  /* --------- GLOBAL --------- */
+
+  --body-font: "Roboto Serif";
+
+  --heading-font: "Montserrat";
+  --heading-weight: 600;
+  --heading-case: inherit;
+
+  --button-font: "Montserrat";
+  --button-weight: 600;
+  --button-case: uppercase;
+  --button-radius: 10rem;
+  
+  --regular: 300;
+  --bold: 500;
+
+  --border-radius: 2rem;
+
+  --paragraph-margin: 2rem;
+
+  --logo-width-sm: 26rem;
+  --logo-width-md: 25rem;
+  --logo-width-lg: 32rem;
+
+}

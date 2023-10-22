@@ -1,0 +1,555 @@
+.column {
+  background: var(--white);
+  @include cell-row;
+  justify-content: flex-start;
+  
+  @include media-height(md) {
+    justify-content: center;
+  }
+
+  @include media-down(xl) {
+    justify-content: center;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &__inner {
+    @include block-y;
+    @include block-left;
+    width: $main;
+
+    @include media-height(md) {
+      max-width: $fixed;
+      @include block-right;
+      width: 100%;
+      text-align: center;
+    }
+
+    @include media-down(xl) {
+      max-width: $fixed;
+      @include block-right;
+      width: 100%;
+      text-align: center;
+    }
+
+    @include media-down(lg) {
+      max-width: $main + 20%;
+    }
+
+    @include media-down(md) {
+      max-width: none;
+    }
+
+  }
+
+
+  /* --------- USE FOR LISTS (UL or OL) --------- */
+
+  &__list { 
+    list-style: none;
+    @include cell-row;
+    justify-content: center;
+    padding: 0;
+    margin: 0 (-$gutter);
+
+    &--review {
+      margin-top: 3rem;
+    }
+
+    &--bottom {
+      padding: 2rem 0 ;
+
+      @include media-up(xl) {
+        padding: 2rem 0 0 0;
+      }
+
+    }
+
+  }
+
+
+  /* --------- USE FOR CONTENT ELEMENTS (DIV, ARTICLE ETC...) --------- */
+
+  &__row {
+    @include cell-row;
+    @include cell-row-gutter;
+    justify-content: center;
+  }
+
+  &__cell {
+    @include cell;
+    padding-top: $gutter - 0.5rem;
+    padding-bottom: $gutter - 0.5rem;
+    @include cell-gutter;
+    @include cell-span(12);
+    text-align: center;
+
+    @include media-up(sm) {
+      @include cell-span(6);
+    }
+
+    @include media-up(lg) {
+      @include cell-span(0);
+      max-width: 50%;
+    }
+
+  }
+
+  &__review {
+    @include cell;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+    @include cell-gutter;
+    @include cell-span(12);
+
+    &--multi {
+
+      @include media-min(700px) {
+        @include cell-span(6);
+      }
+
+    }
+
+    @include media-max(700px) {
+      padding-top: $gutter - 0.5rem;
+      padding-bottom: $gutter - 0.5rem;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+    }
+
+  }
+
+  &__body {
+    @include cell;
+    @include cell-gutter;
+    @include cell-span(12);
+    text-align: center;
+
+    @media (min-width: 951px) {
+      @include cell-span(7);
+      text-align: left;
+      align-self: center;
+    }
+
+    .button {
+      margin: 3rem auto 0;
+      display: none;
+
+      @include media-height(md) {
+        display: block;
+      }
+    
+      @include media-down(xl) {
+        display: block;
+      }
+
+      @media (min-width: 951px) {
+        margin: 3rem 0 0;
+      }
+
+    }
+
+  }
+
+  &__media {
+    @include cell;
+    @include cell-gutter;
+    @include cell-span(12);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    @media (min-width: 951px) {
+      @include cell-span(5);
+      margin-bottom: 0;
+    }
+
+    img {
+      @include object-fit (cover);
+      @include object-position (center);
+
+      @include media-up(sm) {
+        max-width: 31rem;
+      }
+      
+      @include media-up(lg) {
+        max-width: none;
+      }
+      
+    }
+
+    &--profile {
+
+      img {
+        @include object-fit (contain);
+        @include object-position (top);
+      }
+
+    }
+
+  }
+
+  &--odd {
+
+    .column {
+
+      &__body {
+        order: 2;
+    
+        @media (min-width: 951px) {
+          order: 1;
+        }
+
+      }
+
+      &__media {
+        order: 1;
+
+        @media (min-width: 951px) {
+          order: 2;
+        }
+
+      }
+
+    }
+
+  }
+
+  &--even {
+
+    .column {
+
+      &__body {
+        order: 2;
+    
+        @media (min-width: 951px) {
+          order: 2;
+        }
+
+      }
+
+      &__media {
+        order: 1;
+
+        @media (min-width: 951px) {
+          order: 1;
+        }
+
+      }
+
+    }
+
+  }
+
+  &__img {
+    position: relative;
+    width: 18rem;
+    height: 18rem;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto 2.5rem;
+    overflow: hidden;
+
+    @include media-up(lg) {
+      width: 23rem;
+      height: 23rem;
+    }
+
+    &--white {
+      background: var(--white);
+    }
+
+    &--bg-one {
+      background: var(--color-one);
+    }
+
+    &--bg-three {
+      background: var(--color-three);
+    }
+
+    &--icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 10rem;
+      height: 10rem;
+
+      img {
+        width: 5.5rem;
+      }
+
+    }
+
+    &--result {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      margin: 0;
+
+      picture {
+        height: 60vw;
+        width: 100%;
+
+        @include media-up(sm) {
+          height: 23vw;
+        }
+
+        @include media-up(md) {
+          height: 28vw;
+        }
+
+        @include media-up(lg) {
+          height: 35rem;
+        }
+
+      }
+
+      img {
+        @include object-fit (cover);
+        @include object-position (center);
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+  }
+
+  &__border {
+    @include cell-row;
+    width: 100%;
+    border: 0.1rem solid var(--color-one);
+    padding: 2rem 0;
+
+    @include media-up(sm) {
+      padding: 4rem 2rem;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+
+      @include media-up(sm) {
+        margin-bottom: 4rem;
+      }
+
+    }
+
+  }
+
+  &__caption {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: var(--color-one);
+    color: var(--white);
+  }
+
+  &__heading {
+    margin: 0 auto 4rem;
+
+    @include media-height(md) {
+      max-width: 70rem;
+    }
+  
+    @include media-down(xl) {
+      max-width: 70rem;
+    }
+
+    &--results {
+      margin: 0 auto 2rem;
+    }
+
+  }
+
+  &__content {
+    margin: 0 auto;
+
+    @include media-height(md) {
+      max-width: 70rem;
+    }
+  
+    @include media-down(xl) {
+      max-width: 70rem;
+    }
+
+  }
+
+  &__title {
+    font-size: 1.7rem;
+    margin-bottom: -1rem;
+
+    @include media-up(lg) {
+      font-size: 1.8rem;
+    }
+
+    @include media-up(xxl) {
+      font-size: 2rem;
+    }
+
+  }
+
+  &__footer {
+    display: none;
+    margin: 3.5rem auto 0;
+
+    @include media-height(md) {
+      display: block;
+    }
+  
+    @include media-down(xl) {
+      display: block;
+    }
+
+  }
+
+  a {
+    font-weight: var(--bold);
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+
+  }
+
+  .button {
+    color: var(--white);
+    background: var(--color-three);
+    border-color: var(--color-three);
+
+    @include hover-focus {
+      color: var(--white);
+      background: var(--color-one);
+      border-color: var(--color-one);
+    }
+
+  }
+
+  &--bg {
+
+    &-one {
+      background: var(--color-one);
+      color: var(--white);
+
+      .column {
+
+        &__border {
+          border-color: var(--color-two);
+        }
+
+      }
+
+      .icon {
+
+        svg {
+          fill: var(--white);
+        }
+
+      }
+
+      table {
+        color: var(--white);
+
+        th, td {
+          vertical-align: middle;
+          border-color: var(--white);
+        }
+
+      }
+
+      .button {
+        color: var(--white);
+        background: var(--color-three);
+        border-color: var(--color-three);
+
+        @include hover-focus {
+          color: var(--color-one);
+          background: var(--white);
+          border-color: var(--white);
+        }
+
+      }
+
+    }
+
+    &-two {
+      background: var(--color-two);
+
+      .icon {
+
+        svg {
+          fill: var(--black);
+        }
+
+      }
+
+      .button {
+        color: var(--white);
+        background: var(--color-three);
+        border-color: var(--color-three);
+
+        @include hover-focus {
+          color: var(--white);
+          background: var(--color-one);
+          border-color: var(--color-one);
+        }
+        
+      }
+
+    }
+
+    &-three {
+      background: var(--color-three);
+      color: var(--white);
+
+      .column {
+
+        &__border {
+          border-color: var(--color-two);
+        }
+
+      }
+
+      .icon {
+
+        svg {
+          fill: var(--white);
+        }
+
+      }
+
+      table {
+        color: var(--white);
+      }
+
+      .button {
+        color: var(--color-one);
+        background: var(--white);
+        border-color: var(--white);
+
+        @include hover-focus {
+          color: var(--white);
+          background: var(--color-one);
+          border-color: var(--color-one);
+        }
+        
+      }
+
+    }
+
+  } 
+
+}

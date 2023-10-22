@@ -1,0 +1,24 @@
+.more {
+  margin-top: var(--paragraph-margin);
+  margin-bottom: 0;
+
+  &__text {
+    overflow: hidden;
+    display: block;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out, margin-bottom 0.4s ease-in-out;
+
+    &.show {
+      max-height: 50rem;
+      margin-bottom: 2rem;
+    }
+
+  }
+
+  &__button {
+    font-size: 80%;
+    font-weight: var(--bold);
+    text-decoration: underline;
+  }
+
+}

@@ -1,0 +1,384 @@
+.hero {
+  position: relative;
+  // height: 50rem;
+  // padding-top: 6.6rem;
+
+  // @include media-up(sm) {
+  //   padding-top: 14.8rem;
+  // }
+
+  // @include media-up(md) {
+  //   padding-top: 13rem;
+  // }
+
+  // @include media-up(lg) {
+  //   // height: 100vh;
+  //   // min-height: 50rem;
+  //   overflow: hidden;
+  // }
+
+  // @include media-up(lg) {
+  //   height: calc(100vh - 5.8rem);
+  //   min-height: 50rem;
+  //   overflow: hidden;
+  // }
+
+  @include media-up(xl) {
+    height: 100vh;
+    min-height: 50rem;
+    overflow: hidden;
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    height: 18rem;
+
+    @include media-up(sm) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      z-index: 0;
+    }
+
+    img {
+      @include object-fit (cover);
+      @include object-position (top);
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;  
+      background: var(--color-one);
+      opacity: 0.4;
+      z-index: 1;
+    }
+
+  }
+
+  &__content {
+    position: relative;
+    height: 100%;
+    @include cell;
+    @include cell-row;
+    padding-top: 4rem;
+    @include block-left;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--white);
+    z-index: 2;
+    width: $main;
+
+    @include media-height(md) {
+      width: 100%;
+      @include block-right;
+      padding-top: 4rem;
+    }
+
+    @include media-down(xl) {
+      width: 100%;
+      @include block-right;
+      padding-top: 23rem;
+    }
+
+    @include media-down(sm) {
+      background: var(--color-one);
+      padding: 0;
+    }
+
+  }
+
+  &__inner {
+    @include cell-row;
+    align-items: flex-end;
+    width: 100%;
+
+    @include media-height(md) {
+      max-width: $fixed;
+    }
+
+    @include media-down(xl) {
+      max-width: $fixed;
+    }
+
+  }
+
+  &__strap {
+    @include cell;
+    @include cell-span(0);
+    text-transform: var(--heading-case);
+    padding: 3rem 0;
+
+    // @include media-up(sm) {
+    //   @include cell-span(7);
+    // }
+
+    // @media (min-width: 860px) { 
+    //   @include cell-span(12);
+    // }
+
+    
+
+    @include media-height(md) {
+      text-align: center;
+    }
+
+    @include media-down(xl) {
+      text-align: center;
+    }
+
+    @media (max-width: 859px) {
+      text-align: left;
+    }
+
+    @include media-down(sm) {
+      text-align: center;
+      padding: $gutter;
+    }
+
+  }
+
+  &__logo {
+    max-width: 18rem;
+
+    @include media-up(sm) {
+      max-width: 20rem;
+    }
+
+    @include media-up(lg) {
+      max-width: 25rem;
+    }
+
+    @include media-up(xl) {
+      max-width: 28rem;
+    }
+
+  }
+
+  &__offers {
+    display: flex;
+    justify-content: center;
+    @include cell;
+    @include cell-span(12);
+    background: var(--color-three);
+    padding: $gutter + 1rem;
+
+    @include  media-up(sm) {
+      @include cell-span(5);
+      // padding: $gutter + 1rem $gutter;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    @include media-min(860px) { 
+      @include cell-span(12);
+      padding: $gutter + 1rem $gutter;
+    }
+
+  }
+
+  &__list { 
+    list-style: none;
+    @include cell-row;
+    @include cell-row-gutter;
+    
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0;
+
+    @include media-down(sm) {
+      max-width: 36rem;
+    }
+
+    @include media-max(480px) {
+      max-width: 30rem;
+    }
+
+    @include media-min(860px) {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    // @include media-up(lg) {    
+    //   width: 100%;
+    // }
+
+  }
+
+  &__cell {
+    position: relative;
+    max-width: 100%;
+    flex: 0 0 auto;
+    @include cell-gutter;
+    // @include cell-span(12);
+    // @include cell-row;
+    display: flex;
+    padding: 0 $gutter;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+
+      @include media-up(sm) {
+        margin-bottom: 1rem;
+      }
+
+    }
+
+    @include media-min(860px) {
+      // @include cell-span(0);
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+
+        // &::after {
+        //   display: block;
+        //   content: "";
+        //   height: 100%;
+        //   width: 0.2rem;
+        //   background: rgba(255, 255, 255, 0.3);
+        //   margin: 0 2.5rem;
+        // }
+
+      }
+
+    }
+
+    @include media-up(xxl) {
+      @include cell-span(auto);
+    }
+
+    @include media-down(sm) {
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+    }
+
+  }
+
+  &__icon {
+    position: relative;
+    border-radius: 50%;
+    margin: 0 1.5rem 0 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    height: 8rem;
+    background: var(--white);
+
+    @include media-up(sm) {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    @include media-min(1400px) {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    @include media-up(xxl) {
+      width: 10rem;
+      height: 10rem;
+      margin: 0 2.5rem 0 0;
+    }
+
+    img {
+      width: 65%;
+    }
+
+  }
+
+  &__body {
+    @include cell;
+    @include cell-span(0);
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1.3;
+
+    @include media-min(480px) {
+      font-size: 4.3vw;
+    }
+
+    @include media-up(sm) {
+      font-size: 1.5rem;
+    }
+
+    @include media-up(md) {
+      font-size: 1.7rem;
+    }
+
+    @include media-up(lg) {
+      font-size: 1.5rem;
+    }
+
+    @include media-min(1400px) {
+      font-size: 1.7rem;
+    }
+
+    @include media-up(xxl) {
+      font-size: 1.9rem;
+    }
+
+  }
+
+  &__message {
+    @include cell;
+    padding: 0.5rem $gutter;
+    @include cell-span(0);
+
+    @include media-height(md) {
+      text-align: center;
+    }
+
+    @include media-down(xl) {
+      text-align: center;
+    }
+
+    @include media-max(860px) {
+      text-align: left;
+    }
+
+  }
+
+  &__lead {
+
+    @include media-min(860px) {
+      font-size: 2.5rem;
+    }
+
+  }
+
+  a {
+    color: var(--white);
+  
+    @include hover-focus {
+      opacity: 0.8;
+    }
+
+  }
+
+}

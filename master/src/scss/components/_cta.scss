@@ -1,0 +1,113 @@
+.cta {
+
+  &--color-one {
+    background: var(--color-one);
+    color: var(--white);
+  }
+
+  &--color-two {
+    background: var(--color-two);
+  }
+
+  &--color-three {
+    background: var(--color-three);
+    color: var(--white);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    @include block;
+    margin: 0 auto;
+
+    @include media-height(md) {
+      max-width: $fixed;
+    }
+
+    @include media-down(xl) {
+      max-width: $fixed;
+    }
+
+    @include media-down(lg) {
+      max-width: $main + 20%;
+    }
+
+    @include media-down(md) {
+      max-width: none;
+    }
+
+  }
+
+  &__row {
+    @include cell-row;
+    @include cell-row-gutter;
+    align-items: flex-start;
+
+    @include media-height(md) {
+      // max-width: 70rem;
+      align-items: flex-start;
+    }
+  
+    @include media-down(xl) {
+      max-width: 70rem;
+      text-align: center;
+    }
+
+    // @include media-up(lg) {
+    //   text-align: left;
+    // }
+
+  }
+
+  &__one {
+    @include cell;
+    @include cell-gutter;
+    @include cell-span(12);
+
+    @include media-up(xl) {
+      @include cell-span(4);
+    }
+
+  }
+
+  &__two {
+    @include cell;
+    @include cell-gutter;
+    @include cell-span(12);
+
+    @include media-up(xl) {
+      @include cell-span(0);
+    }
+
+  }
+
+  &__heading {
+
+    @include media-down(xl) {
+      margin-bottom: var(--paragraph-margin) !important;
+    }
+
+  }
+
+  .button {
+    margin-top: 3rem;
+    display: none;
+
+    @include media-height(md) {
+      max-width: 70rem;
+      // display: block;
+    }
+  
+    @include media-down(xl) {
+      max-width: 70rem;
+      display: block;
+      margin: 3rem auto 0;
+    }
+
+  }
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+}

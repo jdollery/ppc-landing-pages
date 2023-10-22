@@ -1,0 +1,32 @@
+/*-----------------------------------------------------------------------------------*/
+/* MIXINS */
+/*-----------------------------------------------------------------------------------*/
+
+@each $breakpoint in map-keys($breakpoint-widths) {
+
+  @include media-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $breakpoint-widths);
+
+    .hidden#{$infix} { display: none !important; }
+  }
+  
+}
+
+@each $breakpoint in map-keys($breakpoint-widths) {
+
+  @include media-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $breakpoint-widths);
+
+    .visable#{$infix} { display: none !important; }
+  }
+  
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+/* STYLING */
+/*-----------------------------------------------------------------------------------*/
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,110 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.2;
+  color: inherit;
+  margin-top: var(--paragraph-margin);
+  margin-bottom: var(--paragraph-margin);
+  
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+@mixin h1 {
+  font-size: 10vw;
+  line-height: 1.1;
+  font-family: var(--heading-font);
+  font-weight: var(--heading-weight);
+
+  @media (min-width: 375px) { 
+    font-size: 8vw;
+  }
+
+  @include media-up(sm) {
+    font-size: 7.5vw;
+  }
+
+  @media (min-width: 860px) { 
+    font-size: 7rem;
+  }
+
+  @include media-up(xxl) {
+    font-size: 7.8rem;
+  }
+
+}
+
+@mixin h2 {
+  font-size: 2.6rem;
+  font-family: var(--heading-font);
+  font-weight: var(--heading-weight);
+
+  @include media-up(sm) {
+    font-size: 2.8rem;
+  }
+
+  @include media-up(lg) {
+    font-size: 3.5rem;
+  }
+
+  @include media-up(xl) {
+    font-size: 3.5rem;
+  }
+
+  @include media-up(xxl) {
+    font-size: 4rem;
+  }
+
+}
+
+@mixin h3 {
+  font-size: 2rem;
+  font-family: var(--heading-font);
+  font-weight: var(--heading-weight);
+
+  @include media-up(xxl) {
+    font-size: 2.4rem;
+  }
+
+}
+
+@mixin h4 {
+  font-size: 1.7rem;
+  line-height: 1.5;
+
+  @include media-up(md) {
+    font-size: 1.8rem;
+  }
+
+  @include media-up(lg) {
+    font-size: 1.9rem;
+  }
+
+  @include media-up(xxl) {
+    font-size: 2rem;
+  }
+
+}
+
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
